@@ -25,5 +25,18 @@ export class AppComponent implements OnInit {
         zoom: 12,
       }
     );
+
+    this.addMarker();
+  }
+
+  // https://developers.google.com/maps/documentation/javascript/markers?hl=pt-br
+  addMarker(): void {
+    let newMarker = new google.maps.Marker({
+      position: { lat: -7.2219439, lng: -39.3277978 },
+      map: this.map,
+      icon: "https://img.icons8.com/?size=24&id=21159&format=png",
+    });
+
+    this.marker = newMarker;
   }
 }
