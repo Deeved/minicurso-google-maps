@@ -1,14 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>MinicursoGoogleMaps</title>
-  <base href="/">
+  <head>
+    <meta charset="utf-8" />
+    <title>Minicurso Google Maps</title>
+    <base href="/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  </head>
+  <body>
+    <app-root></app-root>
+    <script>
+      function __initMap() {
+        console.log('Map\'s api is loaded in project "Minicurso Google maps!"');
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?&libraries=visualization,places,drawing&language=pt-BR&region=br&callback=__initMap"></script>
+  </body>
 </html>
