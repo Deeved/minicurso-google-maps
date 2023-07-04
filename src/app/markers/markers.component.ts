@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MapInstance } from "../google";
+import { MapInstance, Marker } from "../google";
 
 @Component({
   selector: "app-markers",
@@ -9,7 +9,7 @@ import { MapInstance } from "../google";
 export class MarkersComponent implements OnInit {
   map: google.maps.Map;
   center: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
-  marker: google.maps.Marker;
+  marker: Marker;
   constructor() {}
 
   ngOnInit() {
@@ -25,14 +25,21 @@ export class MarkersComponent implements OnInit {
   }
 
   addMarker(): void {
-    let newMarker = new google.maps.Marker({
+    let newMarker: Marker<{ label: string }> = new google.maps.Marker({
       position: { lat: -7.2219439, lng: -39.3277978 },
       map: this.map,
-      // icon: "https://img.icons8.com/?size=24&id=21159&format=png",
+      // icon: { path: google.maps.SymbolPath.CIRCLE, scale: 10 },
       // icon: "/assets/P-Brisanet.png/?size=24",
+      // draggable: true,
     });
 
+    newMarker.item = {
+      label: "new marker",
+    };
+
     // newMarker.addListener("click", (e) => {
+    //   newMarker.setAnimation(google.maps.Animation.BOUNCE);
+    //   newMarker.setLabel(newMarker.item.label);
     //   console.log(e.latLng);
     // });
 
