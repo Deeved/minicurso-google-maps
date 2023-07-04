@@ -1,1 +1,18 @@
-<router-outlet></router-outlet>
+<div class="container" style="margin: 24px">
+  <header>
+    {{ title }}
+  </header>
+  <div class="context" style="display: flex; height: 100%">
+    <aside style="width: 150px">
+      <ion-tab-group
+        [tabs]="tabs"
+        direction="vertical"
+        size="lg"
+        (selected)="selected($event)"
+      ></ion-tab-group>
+    </aside>
+    <main style="flex: 1">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

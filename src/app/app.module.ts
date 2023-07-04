@@ -7,7 +7,7 @@ import { BasicComponent } from "./basic/basic.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { MarkersComponent } from "./markers/markers.component";
 import { PolylinesComponent } from "./polylines/polylines.component";
-import { IonButtonModule } from "@brisanet/ion";
+import { IonButtonModule, IonTabGroupModule } from "@brisanet/ion";
 @NgModule({
   declarations: [
     AppComponent,
@@ -15,7 +15,13 @@ import { IonButtonModule } from "@brisanet/ion";
     MarkersComponent,
     PolylinesComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, IonButtonModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    IonTabGroupModule,
+    IonButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
