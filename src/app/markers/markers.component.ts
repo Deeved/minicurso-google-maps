@@ -17,11 +17,13 @@ export class MarkersComponent implements OnInit {
   }
 
   loadMap(): void {
-    MapInstance("map", "map", { center: this.center, zoom: 15 }).then((map) => {
-      this.map = map.map;
+    MapInstance("map", "map", { center: this.center, zoom: 15 }).then(
+      (instance) => {
+        this.map = instance.map;
 
-      this.addMarker();
-    });
+        this.addMarker();
+      }
+    );
   }
 
   addMarker(): void {
