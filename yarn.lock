@@ -306,6 +306,13 @@
     "@babel/helper-validator-identifier" "^7.22.5"
     to-fast-properties "^2.0.0"
 
+"@brisanet/ion@^0.0.65":
+  version "0.0.65"
+  resolved "https://registry.yarnpkg.com/@brisanet/ion/-/ion-0.0.65.tgz#c605f5d0c9095b557bc991515da0f16c65ff8538"
+  integrity sha512-amk/jAuQxb17Xaiuf2GLCdq9WCsp6hoMG6bJnM1cG1PgxyCXDuSwRGo1XQRHFaJgLzS2CHV+lLZ7vzfBLa9Bmg==
+  dependencies:
+    tslib "^1.9.0"
+
 "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"
