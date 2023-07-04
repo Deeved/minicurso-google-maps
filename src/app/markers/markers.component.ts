@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MapInstance, Marker } from "../google";
 
 @Component({
@@ -6,7 +6,7 @@ import { MapInstance, Marker } from "../google";
   templateUrl: "./markers.component.html",
   styleUrls: ["./markers.component.scss"],
 })
-export class MarkersComponent implements OnInit {
+export class MarkersComponent implements OnInit, OnDestroy {
   map: google.maps.Map;
   center: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
   marker: Marker;
@@ -46,5 +46,9 @@ export class MarkersComponent implements OnInit {
     // });
 
     this.marker = newMarker;
+  }
+
+  ngOnDestroy(): void {
+    this.marker.setMap(null);
   }
 }

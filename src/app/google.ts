@@ -49,8 +49,6 @@ export function MapInstance(
         }
         const instance: MapSettings | undefined = instances.get(alias);
         if (instance) {
-          console.log("já existe");
-
           elementWrapper.append(instance.element);
           (instance as MapSettingsPromise).maps = (window as any).google.maps;
           resolve(instance as MapSettingsPromise);

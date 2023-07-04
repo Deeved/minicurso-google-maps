@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { MapInstance } from "../google";
 
 export interface Polyline<T> extends google.maps.Polyline {
@@ -10,7 +10,7 @@ export interface Polyline<T> extends google.maps.Polyline {
   templateUrl: "./polylines.component.html",
   styleUrls: ["./polylines.component.scss"],
 })
-export class PolylinesComponent implements OnInit {
+export class PolylinesComponent implements OnInit, OnDestroy {
   map: google.maps.Map;
   center: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
   polyline: google.maps.Polyline;
@@ -74,5 +74,9 @@ export class PolylinesComponent implements OnInit {
       console.log(path.toJSON());
     });
     console.log(newPath);
+  }
+
+  ngOnDestroy(): void {
+    this.polyline.setMap(null);
   }
 }
