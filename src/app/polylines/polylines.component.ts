@@ -69,9 +69,11 @@ export class PolylinesComponent implements OnInit, OnDestroy {
   }
 
   savePoly(): void {
-    const newPath = this.polyline.getPath();
-    newPath.forEach((path) => {
-      console.log(path.toJSON());
+    const polylinePath = this.polyline.getPath();
+
+    let newPath = [];
+    polylinePath.forEach((path) => {
+      newPath = [...newPath, path.toJSON()];
     });
     console.log(newPath);
   }
