@@ -13,7 +13,7 @@ export interface Tab extends TabInGroup {
 export class AppComponent implements OnInit {
   constructor(private router: Router) {}
 
-  title = "minicurso-google-maps";
+  title = "Minicurso Google Maps";
   tabs: Tab[] = [
     {
       label: "Basic",
