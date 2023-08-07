@@ -21,19 +21,9 @@ export class AppComponent implements OnInit {
       value: "/basic",
     },
     {
-      label: "Markers",
+      label: "Zoom",
       selected: false,
-      value: "/markers",
-    },
-    {
-      label: "Polylines",
-      selected: false,
-      value: "/polylines",
-    },
-    {
-      label: "Polygons",
-      selected: false,
-      value: "/polygons",
+      value: "/zoom",
     },
   ];
 

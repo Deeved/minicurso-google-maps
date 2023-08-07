@@ -1,8 +1,7 @@
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { BasicComponent } from "./basic/basic.component";
-import { MarkersComponent } from "./markers/markers.component";
-import { PolylinesComponent } from "./polylines/polylines.component";
+import { ZoomComponent } from "./zoom/zoom.component";
 
 const routes: Routes = [
   {
@@ -10,12 +9,8 @@ const routes: Routes = [
     component: BasicComponent,
   },
   {
-    path: "markers",
-    component: MarkersComponent,
-  },
-  {
-    path: "polylines",
-    component: PolylinesComponent,
+    path: "zoom",
+    component: ZoomComponent,
   },
 ];
 

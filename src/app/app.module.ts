@@ -8,12 +8,14 @@ import { AppRoutingModule } from "./app-routing.module";
 import { MarkersComponent } from "./markers/markers.component";
 import { PolylinesComponent } from "./polylines/polylines.component";
 import { IonButtonModule, IonTabGroupModule } from "@brisanet/ion";
+import { ZoomComponent } from './zoom/zoom.component';
 @NgModule({
   declarations: [
     AppComponent,
     BasicComponent,
     MarkersComponent,
     PolylinesComponent,
+    ZoomComponent,
   ],
   imports: [
     BrowserModule,
