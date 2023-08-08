@@ -14,6 +14,7 @@ export class ZoomComponent implements OnInit {
   map05: google.maps.Map;
 
   position: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
+  private readonly brisanetIcon = "/assets/brisanet.png";
 
   constructor() {}
 
@@ -36,7 +37,7 @@ export class ZoomComponent implements OnInit {
   addMarker(map: google.maps.Map) {
     const marker = new google.maps.Marker({
       position: this.position,
-      icon: "/assets/P-Brisanet.png",
+      icon: this.brisanetIcon,
     });
 
     marker.setMap(map);
