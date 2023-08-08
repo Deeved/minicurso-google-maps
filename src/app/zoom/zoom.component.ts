@@ -41,8 +41,4 @@ export class ZoomComponent implements OnInit {
 
     marker.setMap(map);
   }
-
-  remove() {
-    this.map02.setZoom(20);
-  }
 }
