@@ -28,8 +28,7 @@ export class ZoomComponent implements OnInit {
 
   getMapInstance(map: string, zoom: number) {
     MapInstance(map, map, { center: this.position, zoom }).then((instance) => {
-      this.map01 = instance.map;
-
+      this[map] = instance.map;
       this.addMarker(instance.map);
     });
   }
@@ -41,5 +40,9 @@ export class ZoomComponent implements OnInit {
     });
 
     marker.setMap(map);
+  }
+
+  remove() {
+    this.map02.setZoom(20);
   }
 }

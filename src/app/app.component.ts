@@ -25,6 +25,11 @@ export class AppComponent implements OnInit {
       selected: false,
       value: "/zoom",
     },
+    {
+      label: "MapType",
+      selected: false,
+      value: "/map-type",
+    },
   ];
 
   selected(tab) {

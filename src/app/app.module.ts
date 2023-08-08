@@ -9,6 +9,7 @@ import { MarkersComponent } from "./markers/markers.component";
 import { PolylinesComponent } from "./polylines/polylines.component";
 import { IonButtonModule, IonTabGroupModule } from "@brisanet/ion";
 import { ZoomComponent } from './zoom/zoom.component';
+import { MapTypeComponent } from './map-type/map-type.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,6 +17,7 @@ import { ZoomComponent } from './zoom/zoom.component';
     MarkersComponent,
     PolylinesComponent,
     ZoomComponent,
+    MapTypeComponent,
   ],
   imports: [
     BrowserModule,

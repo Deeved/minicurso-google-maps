@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { BasicComponent } from "./basic/basic.component";
 import { ZoomComponent } from "./zoom/zoom.component";
+import { MapTypeComponent } from "./map-type/map-type.component";
 
 const routes: Routes = [
   {
@@ -11,6 +12,10 @@ const routes: Routes = [
   {
     path: "zoom",
     component: ZoomComponent,
+  },
+  {
+    path: "map-type",
+    component: MapTypeComponent,
   },
 ];
 
