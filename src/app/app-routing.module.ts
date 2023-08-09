@@ -3,6 +3,7 @@ import { Routes, RouterModule } from "@angular/router";
 import { BasicComponent } from "./basic/basic.component";
 import { ZoomComponent } from "./zoom/zoom.component";
 import { MapTypeComponent } from "./map-type/map-type.component";
+import { TiltComponent } from "./tilt/tilt.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "map-type",
     component: MapTypeComponent,
+  },
+  {
+    path: "tilt",
+    component: TiltComponent,
   },
 ];
 

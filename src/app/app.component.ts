@@ -30,6 +30,11 @@ export class AppComponent implements OnInit {
       selected: false,
       value: "/map-type",
     },
+    {
+      label: "Tilt",
+      selected: false,
+      value: "/tilt",
+    },
   ];
 
   selected(tab) {
