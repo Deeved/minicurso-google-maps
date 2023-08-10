@@ -7,31 +7,30 @@ import { MapInstance } from "../google";
   styleUrls: ["./basic.component.scss"],
 })
 export class BasicComponent implements OnInit {
-  map: google.maps.Map;
-  center: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
+  instanciaDoMapa: google.maps.Map;
+  posicao: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
+  zoomPadrao = 15;
 
   constructor() {}
 
   ngOnInit() {
-    this.loadMap();
+    this.obterInstanciaDoMapa();
   }
 
-  loadMap(): void {
-    this.map = new google.maps.Map(
-      document.getElementById("map") as HTMLElement,
+  obterInstanciaDoMapa(): void {
+    this.instanciaDoMapa = new google.maps.Map(
+      document.getElementById("mapa") as HTMLElement,
       {
-        center: this.center,
-        zoom: 15,
+        center: this.posicao,
+        zoom: this.zoomPadrao,
       }
     );
 
-    // MapInstance("map", "map", {
-    //   center: this.center,
-    //   zoom: 15,
-    // }).then((map) => {
-    //   this.map = map.map;
-    //   console.log("Instância");
-    //   map;
+    // MapInstance("mapa", "mapa", {
+    //   center: this.posicao,
+    //   zoom: this.zoomPadrao,
+    // }).then((resp) => {
+    //   this.instanciaDoMapa = resp.map;
     // });
   }
 }
