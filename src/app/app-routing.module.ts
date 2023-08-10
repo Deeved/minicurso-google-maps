@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { Component, NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { BasicComponent } from "./basic/basic.component";
 import { ZoomComponent } from "./zoom/zoom.component";
@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: "tilt",
     component: TiltComponent,
+  },
+  {
+    path: "**",
+    component: BasicComponent,
   },
 ];
 
