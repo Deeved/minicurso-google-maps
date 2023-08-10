@@ -1,12 +1,12 @@
-<div class="container" style="margin: 24px">
+<div class="container">
   <header>
     <h1>
       {{ title }}
     </h1>
   </header>
 
-  <div class="context" style="display: flex; height: 100%">
-    <aside style="width: 150px">
+  <div class="context">
+    <aside>
       <ion-tab-group
         [tabs]="tabs"
         direction="vertical"
@@ -14,7 +14,7 @@
         (selected)="selected($event)"
       ></ion-tab-group>
     </aside>
-    <main style="flex: 1">
+    <main>
       <router-outlet></router-outlet>
     </main>
   </div>
