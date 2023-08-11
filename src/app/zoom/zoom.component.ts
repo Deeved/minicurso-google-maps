@@ -43,7 +43,7 @@ export class ZoomComponent implements OnInit {
       this[map].setOptions({
         zoom,
         center: this.posicao,
-        mapTypeid: "roadmap",
+        mapTypeId: "roadmap",
         // maxZoom: 15,
         // minZoom: 10,
         // zoomControl: false,

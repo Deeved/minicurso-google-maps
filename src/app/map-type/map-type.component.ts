@@ -1,47 +1,50 @@
 import { Component, OnInit } from "@angular/core";
 import { MapInstance } from "../google";
 
+enum TipoDeMapa {
+  Roadmap = "roadmap",
+  Satellite = "satellite",
+  Hybrid = "hybrid",
+  Terrain = "terrain",
+}
 @Component({
   selector: "app-map-type",
   templateUrl: "./map-type.component.html",
   styleUrls: ["./map-type.component.scss"],
 })
 export class MapTypeComponent implements OnInit {
-  map01: google.maps.Map;
-  map02: google.maps.Map;
-  map03: google.maps.Map;
-  map04: google.maps.Map;
+  mapa01: google.maps.Map;
+  mapa02: google.maps.Map;
+  mapa03: google.maps.Map;
+  mapa04: google.maps.Map;
 
-  position: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
-
-  defaultZoom = 15;
+  posicao: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
+  zoomPadrao = 15;
 
   constructor() {}
 
   ngOnInit() {
-    this.getMapInstance("map01", this.defaultZoom);
-    this.getMapInstance("map02", this.defaultZoom);
-    this.getMapInstance("map03", this.defaultZoom);
-    this.getMapInstance("map04", this.defaultZoom);
-
-    this.setMapType();
+    this.obterInstanciaDoMapa("mapa01");
+    this.obterInstanciaDoMapa("mapa02", TipoDeMapa.Satellite);
+    this.obterInstanciaDoMapa("mapa03", TipoDeMapa.Hybrid);
+    this.obterInstanciaDoMapa("mapa04", TipoDeMapa.Terrain);
   }
 
-  getMapInstance(map: string, zoom: number) {
+  obterInstanciaDoMapa(
+    map: string,
+    tipoDeMapa: TipoDeMapa = TipoDeMapa.Roadmap
+  ) {
     MapInstance(map, map, {
-      center: this.position,
-      zoom,
-      mapTypeId: "roadmap",
+      center: this.posicao,
+      zoom: this.zoomPadrao,
     }).then((instance) => {
       this[map] = instance.map;
-    });
-  }
 
-  setMapType() {
-    setTimeout(() => {
-      this.map02.setMapTypeId("satellite");
-      this.map03.setMapTypeId("hybrid");
-      this.map04.setMapTypeId("terrain");
+      this[map].setOptions({
+        center: this.posicao,
+        zoom: this.zoomPadrao,
+        mapTypeId: tipoDeMapa,
+      });
     });
   }
 }
