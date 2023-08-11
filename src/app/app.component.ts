@@ -34,6 +34,11 @@ export class AppComponent implements OnInit {
       selected: false,
       value: "/tilt",
     },
+    {
+      label: "Controls",
+      selected: false,
+      value: "/controls",
+    },
   ];
 
   selected(tab) {

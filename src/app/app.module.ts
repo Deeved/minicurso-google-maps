@@ -11,6 +11,7 @@ import { IonButtonModule, IonTabGroupModule } from "@brisanet/ion";
 import { ZoomComponent } from './zoom/zoom.component';
 import { MapTypeComponent } from './map-type/map-type.component';
 import { TiltComponent } from './tilt/tilt.component';
+import { ControlsComponent } from './controls/controls.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,7 @@ import { TiltComponent } from './tilt/tilt.component';
     ZoomComponent,
     MapTypeComponent,
     TiltComponent,
+    ControlsComponent,
   ],
   imports: [
     BrowserModule,
