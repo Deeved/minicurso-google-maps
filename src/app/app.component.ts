@@ -30,7 +30,7 @@ export class AppComponent implements OnInit {
       value: "/map-type",
     },
     {
-      label: "Tilt",
+      label: "Tilt and Heading",
       selected: false,
       value: "/tilt",
     },

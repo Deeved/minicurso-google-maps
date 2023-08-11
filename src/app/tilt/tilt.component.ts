@@ -7,8 +7,8 @@ import { MapInstance } from "../google";
   styleUrls: ["./tilt.component.scss"],
 })
 export class TiltComponent implements OnInit {
-  map01: google.maps.Map;
-  map02: google.maps.Map;
+  mapa01: google.maps.Map;
+  mapa02: google.maps.Map;
 
   fortalezaPosition: google.maps.LatLngLiteral = {
     lat: -3.7931392,
@@ -20,26 +20,29 @@ export class TiltComponent implements OnInit {
     lng: -39.3277978,
   };
 
-  private readonly brisanetIcon = "/assets/brisanet.png";
+  zoomPadrao = 20;
+  tipoDeMapaPadrao = "hybrid";
 
   ngOnInit() {
-    this.getMapInstance("map01", 20, this.juazeiroPosition);
-    this.getMapInstance("map02", 20, this.fortalezaPosition);
-
-    // setTimeout(() => {
-    //   this.map01.setTilt(45);
-
-    //   this.map02.setTilt(0);
-    // }, 2000);
+    this.obterInstanciaDoMapa("mapa01", this.juazeiroPosition);
+    this.obterInstanciaDoMapa("mapa02", this.fortalezaPosition);
   }
 
-  getMapInstance(map: string, zoom: number, center: google.maps.LatLngLiteral) {
+  obterInstanciaDoMapa(map: string, center: google.maps.LatLngLiteral) {
     MapInstance(map, map, {
       center,
-      zoom,
+      zoom: this.zoomPadrao,
       mapTypeId: "hybrid",
     }).then((instance) => {
       this[map] = instance.map;
+
+      this[map].setOptions({
+        mapTypeId: this.tipoDeMapaPadrao,
+        zoom: this.zoomPadrao,
+        center,
+        tilt: 45,
+        heading: 0,
+      });
     });
   }
 }
