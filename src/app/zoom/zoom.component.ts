@@ -33,19 +33,23 @@ export class ZoomComponent implements OnInit {
     this.obterInstaciaDoMapa("mapa03", Zoom.Cidade);
     this.obterInstaciaDoMapa("mapa04", Zoom.Rua);
     this.obterInstaciaDoMapa("mapa05", Zoom.Construcoes);
-
-    // setTimeout(() => {
-    //   this.mapa03.setOptions({
-    //     maxZoom: 15,
-    //     minZoom: 10,
-    //     zoomControl: false,
-    //   });
-    // }, 1000);
   }
 
   obterInstaciaDoMapa(map: string, zoom: number) {
     MapInstance(map, map, { center: this.posicao, zoom }).then((instance) => {
       this[map] = instance.map;
+
+      // configuração da instancia
+      this[map].setOptions({
+        zoom,
+        center: this.posicao,
+        mapTypeid: "roadmap",
+        // maxZoom: 15,
+        // minZoom: 10,
+        // zoomControl: false,
+        // fullscreenControl: false,
+      });
+
       this.adicionarMarcador(instance.map);
     });
   }
