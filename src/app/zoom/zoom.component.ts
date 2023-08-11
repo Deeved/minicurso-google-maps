@@ -1,44 +1,61 @@
 import { Component, OnInit } from "@angular/core";
 import { MapInstance } from "../google";
 
+enum Zoom {
+  Min = 0,
+  Mundo = 1,
+  Continente = 5,
+  Cidade = 10,
+  Rua = 15,
+  Construcoes = 20,
+  Max = 22,
+}
 @Component({
   selector: "app-zoom",
   templateUrl: "./zoom.component.html",
   styleUrls: ["./zoom.component.scss"],
 })
 export class ZoomComponent implements OnInit {
-  map01: google.maps.Map;
-  map02: google.maps.Map;
-  map03: google.maps.Map;
-  map04: google.maps.Map;
-  map05: google.maps.Map;
+  mapa01: google.maps.Map;
+  mapa02: google.maps.Map;
+  mapa03: google.maps.Map;
+  mapa04: google.maps.Map;
+  mapa05: google.maps.Map;
 
-  position: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
-  private readonly brisanetIcon = "/assets/brisanet.png";
+  posicao: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
+  private readonly iconeBrisanet = "/assets/brisanet.png";
 
   constructor() {}
 
   ngOnInit() {
-    this.getMapInstance("map01", 1);
-    this.getMapInstance("map02", 5);
-    this.getMapInstance("map03", 10);
-    this.getMapInstance("map04", 15);
-    this.getMapInstance("map05", 20);
+    this.obterInstaciaDoMapa("mapa01", Zoom.Mundo);
+    this.obterInstaciaDoMapa("mapa02", Zoom.Continente);
+    this.obterInstaciaDoMapa("mapa03", Zoom.Cidade);
+    this.obterInstaciaDoMapa("mapa04", Zoom.Rua);
+    this.obterInstaciaDoMapa("mapa05", Zoom.Construcoes);
+
+    // setTimeout(() => {
+    //   this.mapa03.setOptions({
+    //     maxZoom: 15,
+    //     minZoom: 10,
+    //     zoomControl: false,
+    //   });
+    // }, 1000);
   }
 
-  getMapInstance(map: string, zoom: number) {
-    MapInstance(map, map, { center: this.position, zoom }).then((instance) => {
+  obterInstaciaDoMapa(map: string, zoom: number) {
+    MapInstance(map, map, { center: this.posicao, zoom }).then((instance) => {
       this[map] = instance.map;
-      this.addMarker(instance.map);
+      this.adicionarMarcador(instance.map);
     });
   }
 
-  addMarker(map: google.maps.Map) {
+  adicionarMarcador(instanciaDoMapa: google.maps.Map) {
     const marker = new google.maps.Marker({
-      position: this.position,
-      icon: this.brisanetIcon,
+      position: this.posicao,
+      icon: this.iconeBrisanet,
     });
 
-    marker.setMap(map);
+    marker.setMap(instanciaDoMapa);
   }
 }
