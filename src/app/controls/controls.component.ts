@@ -60,11 +60,11 @@ export class ControlsComponent implements OnInit {
     buttom.style.color = "rgb(23, 43, 178);";
     buttom.style.textShadow = "rgba(0, 0, 0, 0.32) 0px 0px 25px;";
 
-    buttom.addEventListener("click", () => {
-      console.log("teste");
-      this.mapa.setZoom(this.mapa.getZoom() + 1);
-    });
-
+    buttom.addEventListener("click", () => this.aproximar());
     this.mapa.controls[google.maps.ControlPosition.LEFT_TOP].push(buttom);
+  }
+
+  aproximar() {
+    this.mapa.setZoom(this.mapa.getZoom() + 1);
   }
 }
