@@ -28,14 +28,14 @@ export class ZoomComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.obterInstaciaDoMapa("mapa01", Zoom.Mundo);
-    this.obterInstaciaDoMapa("mapa02", Zoom.Continente);
-    this.obterInstaciaDoMapa("mapa03", Zoom.Cidade);
-    this.obterInstaciaDoMapa("mapa04", Zoom.Rua);
-    this.obterInstaciaDoMapa("mapa05", Zoom.Construcoes);
+    this.obterInstanciaDoMapa("mapa01", Zoom.Mundo);
+    this.obterInstanciaDoMapa("mapa02", Zoom.Continente);
+    this.obterInstanciaDoMapa("mapa03", Zoom.Cidade);
+    this.obterInstanciaDoMapa("mapa04", Zoom.Rua);
+    this.obterInstanciaDoMapa("mapa05", Zoom.Construcoes);
   }
 
-  obterInstaciaDoMapa(map: string, zoom: number) {
+  obterInstanciaDoMapa(map: string, zoom: number) {
     MapInstance(map, map, { center: this.posicao, zoom }).then((instance) => {
       this[map] = instance.map;
 
