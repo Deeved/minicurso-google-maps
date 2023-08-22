@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnDestroy, OnInit } from "@angular/core";
 import { createMapInstance } from "../google";
 
 enum Zoom {
@@ -15,7 +15,7 @@ enum Zoom {
   templateUrl: "./zoom.component.html",
   styleUrls: ["./zoom.component.scss"],
 })
-export class ZoomComponent implements OnInit {
+export class ZoomComponent implements OnInit, OnDestroy {
   mapa01: google.maps.Map;
   mapa02: google.maps.Map;
   mapa03: google.maps.Map;
@@ -23,6 +23,9 @@ export class ZoomComponent implements OnInit {
   mapa05: google.maps.Map;
 
   posicao: google.maps.LatLngLiteral = { lat: -7.2219439, lng: -39.3277978 };
+
+  marcadores: google.maps.Marker[] = [];
+
   private readonly iconeBrisanet = "/assets/brisanet.png";
 
   constructor() {}
@@ -63,5 +66,11 @@ export class ZoomComponent implements OnInit {
     });
 
     marker.setMap(instanciaDoMapa);
+
+    // this.marcadores.push(marker);
+  }
+
+  ngOnDestroy(): void {
+    // this.marcadores.forEach((marcador) => marcador.setMap(null));
   }
 }
