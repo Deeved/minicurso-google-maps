@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MapInstance } from "../google";
+import { createMapInstance } from "../google";
 
 @Component({
   selector: "app-controls",
@@ -17,7 +17,7 @@ export class ControlsComponent implements OnInit {
   }
 
   obterInstanciaDoMapa() {
-    MapInstance("map", "map", {
+    createMapInstance("map", "map", {
       center: this.posicao,
     }).then((instance) => {
       this.mapa = instance.map;

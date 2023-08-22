@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MapInstance } from "../google";
+import { createMapInstance } from "../google";
 
 enum Zoom {
   Min = 0,
@@ -36,22 +36,24 @@ export class ZoomComponent implements OnInit {
   }
 
   obterInstanciaDoMapa(map: string, zoom: number) {
-    MapInstance(map, map, { center: this.posicao, zoom }).then((instance) => {
-      this[map] = instance.map;
+    createMapInstance(map, map, { center: this.posicao, zoom }).then(
+      (instance) => {
+        this[map] = instance.map;
 
-      // configuração da instancia
-      this[map].setOptions({
-        zoom,
-        center: this.posicao,
-        mapTypeId: "roadmap",
-        // maxZoom: 15,
-        // minZoom: 10,
-        // zoomControl: false,
-        // fullscreenControl: false,
-      });
+        // configuração da instancia
+        this[map].setOptions({
+          zoom,
+          center: this.posicao,
+          mapTypeId: "roadmap",
+          // maxZoom: 15,
+          // minZoom: 10,
+          // zoomControl: false,
+          // fullscreenControl: false,
+        });
 
-      this.adicionarMarcador(instance.map);
-    });
+        this.adicionarMarcador(instance.map);
+      }
+    );
   }
 
   adicionarMarcador(instanciaDoMapa: google.maps.Map) {

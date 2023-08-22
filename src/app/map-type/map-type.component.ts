@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MapInstance } from "../google";
+import { createMapInstance } from "../google";
 
 enum TipoDeMapa {
   Roadmap = "roadmap",
@@ -34,7 +34,7 @@ export class MapTypeComponent implements OnInit {
     map: string,
     tipoDeMapa: TipoDeMapa = TipoDeMapa.Roadmap
   ) {
-    MapInstance(map, map, {
+    createMapInstance(map, map, {
       center: this.posicao,
       zoom: this.zoomPadrao,
     }).then((instance) => {

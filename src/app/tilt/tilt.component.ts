@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MapInstance } from "../google";
+import { createMapInstance } from "../google";
 
 @Component({
   selector: "app-tilt",
@@ -29,7 +29,7 @@ export class TiltComponent implements OnInit {
   }
 
   obterInstanciaDoMapa(map: string, center: google.maps.LatLngLiteral) {
-    MapInstance(map, map, {
+    createMapInstance(map, map, {
       center,
       zoom: this.zoomPadrao,
       mapTypeId: "hybrid",

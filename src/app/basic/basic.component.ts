@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { MapInstance } from "../google";
+import { createMapInstance } from "../google";
 
 @Component({
   selector: "app-basic",
@@ -26,7 +26,7 @@ export class BasicComponent implements OnInit {
       }
     );
 
-    // MapInstance("mapa", "mapa", {
+    // createMapInstance("mapa", "mapa", {
     //   center: this.posicao,
     //   zoom: this.zoomPadrao,
     // }).then((resp) => {
